@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <Nullable>enable</Nullable>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gamp.Weather.Domain.Ef.Sql\Gamp.Weather.Domain.Ef.Sql.csproj" />
+    <ProjectReference Include="..\Gamp.Weather.Domain.Mongo\Gamp.Weather.Domain.Mongo.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -7,14 +7,15 @@ namespace Gamp.Weather.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class ForecastsController : ControllerBase
     {
-        private ILogger<WeatherForecastController> Logger { get; }
+        private ILogger<ForecastsController> Logger { get; }
+
         private IWeatherForecastService ForecastService { get; }
 
 
-        public WeatherForecastController(
-            ILogger<WeatherForecastController> logger,
+        public ForecastsController(
+            ILogger<ForecastsController> logger,
             IWeatherForecastService forecastService)
         {
             Logger = logger;

@@ -1,23 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29505.145
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{31D77441-6655-4C18-91A5-ED411C536B05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Abstractions", "src\Gamp.Weather.Abstractions\Gamp.Weather.Abstractions.csproj", "{751CE19F-373A-4E28-8B8F-8D06280DF437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Abstractions", "src\Gamp.Weather.Abstractions\Gamp.Weather.Abstractions.csproj", "{751CE19F-373A-4E28-8B8F-8D06280DF437}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Api", "src\Gamp.Weather.Api\Gamp.Weather.Api.csproj", "{366E2B74-D3EC-4969-9B20-CF0F4B04A105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Api", "src\Gamp.Weather.Api\Gamp.Weather.Api.csproj", "{366E2B74-D3EC-4969-9B20-CF0F4B04A105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Core", "src\Gamp.Weather.Core\Gamp.Weather.Core.csproj", "{CB7D3D89-5D29-4D85-BC4D-DB9C404CCFDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Core", "src\Gamp.Weather.Core\Gamp.Weather.Core.csproj", "{CB7D3D89-5D29-4D85-BC4D-DB9C404CCFDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Domain.Ef", "src\Gamp.Weather.Domain.Ef\Gamp.Weather.Domain.Ef.csproj", "{831CA4EB-680B-4CC0-AFC4-0967F204FC70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Domain.Ef", "src\Gamp.Weather.Domain.Ef\Gamp.Weather.Domain.Ef.csproj", "{831CA4EB-680B-4CC0-AFC4-0967F204FC70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Domain.Ef.Sql", "src\Gamp.Weather.Domain.Ef.Sql\Gamp.Weather.Domain.Ef.Sql.csproj", "{6652F072-8617-4F21-AB20-A7F28BD61E29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Domain.Ef.Sql", "src\Gamp.Weather.Domain.Ef.Sql\Gamp.Weather.Domain.Ef.Sql.csproj", "{6652F072-8617-4F21-AB20-A7F28BD61E29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Domain.Mongo", "src\Gamp.Weather.Domain.Mongo\Gamp.Weather.Domain.Mongo.csproj", "{C11622ED-F42D-4858-A645-4DF4BB5E031A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Domain.Mongo", "src\Gamp.Weather.Domain.Mongo\Gamp.Weather.Domain.Mongo.csproj", "{C11622ED-F42D-4858-A645-4DF4BB5E031A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Host", "src\Gamp.Weather.Host\Gamp.Weather.Host.csproj", "{051A3E6F-0572-42FB-AD9A-C6A99D5C1F61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamp.Weather.Host", "src\Gamp.Weather.Host\Gamp.Weather.Host.csproj", "{051A3E6F-0572-42FB-AD9A-C6A99D5C1F61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{71BDA379-533B-4F14-B1A0-026BB65CF9DB}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		global.json = global.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamp.Weather.Extensions.Hosting.DomainEfSql", "src\Gamp.Weather.Extensions.Hosting.DomainEfSql\Gamp.Weather.Extensions.Hosting.DomainEfSql.csproj", "{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{751CE19F-373A-4E28-8B8F-8D06280DF437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -116,6 +123,21 @@ Global
 		{051A3E6F-0572-42FB-AD9A-C6A99D5C1F61}.Release|x64.Build.0 = Release|Any CPU
 		{051A3E6F-0572-42FB-AD9A-C6A99D5C1F61}.Release|x86.ActiveCfg = Release|Any CPU
 		{051A3E6F-0572-42FB-AD9A-C6A99D5C1F61}.Release|x86.Build.0 = Release|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Debug|x64.Build.0 = Debug|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Debug|x86.Build.0 = Debug|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Release|x64.ActiveCfg = Release|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Release|x64.Build.0 = Release|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{751CE19F-373A-4E28-8B8F-8D06280DF437} = {31D77441-6655-4C18-91A5-ED411C536B05}
@@ -125,5 +147,9 @@ Global
 		{6652F072-8617-4F21-AB20-A7F28BD61E29} = {31D77441-6655-4C18-91A5-ED411C536B05}
 		{C11622ED-F42D-4858-A645-4DF4BB5E031A} = {31D77441-6655-4C18-91A5-ED411C536B05}
 		{051A3E6F-0572-42FB-AD9A-C6A99D5C1F61} = {31D77441-6655-4C18-91A5-ED411C536B05}
+		{AF1D3F64-B979-4BC0-A796-811E3CBB72D3} = {31D77441-6655-4C18-91A5-ED411C536B05}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61FA8116-CEEB-431A-8A80-A8E64DD55005}
 	EndGlobalSection
 EndGlobal

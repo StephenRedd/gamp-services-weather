@@ -261,4 +261,4 @@ __pycache__/
 *.pyc
 
 **/App_Data/**
-**/*-user.json
+**/*.user.json

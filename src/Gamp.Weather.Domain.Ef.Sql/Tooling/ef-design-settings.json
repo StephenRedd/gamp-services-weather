@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "WeatherContext": "Server=(localdb)\\MSSQLLocalDB;Database=Gamp;Trusted_Connection=True;"
+  }
+}

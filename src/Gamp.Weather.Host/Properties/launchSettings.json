@@ -11,16 +11,16 @@
     "Gamp.Weather.Host": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weather/forecasts",
+      "launchUrl": "openapi",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:30335;http://localhost:30334"
+      "applicationUrl": "https://localhost:44314;http://localhost:52050"
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weather/forecasts",
+      "launchUrl": "openapi",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -28,14 +28,14 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weather/forecasts",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/openapi",
       "environmentVariables": {
         "ASPNETCORE_URLS": "https://+:443;http://+:80",
-        "ASPNETCORE_HTTPS_PORT": "44315"
+        "ASPNETCORE_HTTPS_PORT": "44314"
       },
       "httpPort": 52052,
       "useSSL": true,
-      "sslPort": 44315
+      "sslPort": 44314
     }
   }
 }

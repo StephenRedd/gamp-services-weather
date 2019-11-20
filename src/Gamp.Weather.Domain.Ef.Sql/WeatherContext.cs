@@ -11,7 +11,6 @@ namespace Gamp.Weather.Domain.Ef.Sql
         public WeatherContext(DbContextOptions<WeatherContext>? options)
             : base(options)
         {
-
         }
 
         public virtual DbSet<DailyForecast>? DailyForecasts { get; set; }
@@ -24,7 +23,7 @@ namespace Gamp.Weather.Domain.Ef.Sql
         {
             modelBuilder
                 .HasDefaultSchema("gamp-weather");
-            
+
             modelBuilder
                 .Entity<DailyForecast>()
                 .HasData(GetForecasts()); //initia seed data
@@ -34,6 +33,7 @@ namespace Gamp.Weather.Domain.Ef.Sql
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
+
         private IEnumerable<DailyForecast> GetForecasts()
         {
             var rng = new Random();
@@ -45,6 +45,5 @@ namespace Gamp.Weather.Domain.Ef.Sql
             })
             .ToArray();
         }
-
     }
 }

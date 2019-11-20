@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Gamp.Weather.Abstractions;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Gamp.Weather.Core

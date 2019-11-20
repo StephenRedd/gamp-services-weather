@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MongoDB.Driver;
 using System;
 using System.Reflection;
 using System.Text.Json;
@@ -90,11 +91,18 @@ namespace Gamp.Weather.Api
             // TODO: Consider passing this into method rather than relying on host to have included it in IConfiguration
             // The host may not know implicitly to support these settings in it's configuration
             var mode = configuration.GetValue("WeatherStore", "Sql");
+
             if (mode.Equals("Sql", StringComparison.InvariantCultureIgnoreCase))
             {
                 services.AddDbContext<WeatherContext>(
                     options => options.UseSqlServer(
-                        configuration.GetConnectionString("WeatherContext")));
+                        configuration.GetConnectionString("WeatherEfSqlContext")));
+            }
+            else
+            {
+                services.AddSingleton<IMongoClient>(
+                    _ => new MongoClient(
+                        configuration.GetConnectionString("WeatherMongoDb")));
             }
 
             services.AddScoped(
@@ -123,6 +131,8 @@ namespace Gamp.Weather.Api
                 ? "/error-dev"
                 : "/error"
             );
+
+            app.UseHsts();
 
             //TODO: probably need to configure this based on settings -- some deployment models will want to use straight HTTP
             app.UseHttpsRedirection();

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Gamp.Weather.Api\Gamp.Weather.Api.csproj" />
     <ProjectReference Include="..\Gamp.Weather.Extensions.Hosting.DomainEfSql\Gamp.Weather.Extensions.Hosting.DomainEfSql.csproj" />
+    <ProjectReference Include="..\Gamp.Weather.Extensions.Hosting.DomainMongo\Gamp.Weather.Extensions.Hosting.DomainMongo.csproj" />
   </ItemGroup>
 
 </Project>

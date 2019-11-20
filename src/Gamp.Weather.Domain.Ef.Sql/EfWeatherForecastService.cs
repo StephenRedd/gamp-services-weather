@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gamp.Weather.Domain.Ef.Sql
 {
-    public class EfSqlWeatherForecastService: EfWeatherForecastService
+    public class EfSqlWeatherForecastService : EfWeatherForecastService
     {
         protected WeatherContext Context { get; }
 

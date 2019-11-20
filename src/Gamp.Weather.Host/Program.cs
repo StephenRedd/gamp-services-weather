@@ -50,13 +50,18 @@ namespace Gamp.Weather.Host
                      hostContext.Configuration.GetSection("Kestrel"));
 
                  var mode = hostContext.Configuration.GetValue("WeatherStore", "Sql");
+
+                 // Add a Worker Service to run the auto-migrator
+                 // See the docs for more informaion on Worker Services
+                 // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio
                  if (mode.Equals("Sql", StringComparison.InvariantCultureIgnoreCase))
                  {
-                     // Add a Worker Service to run the auto-migrator
-                     // See the docs for more informaion on Worker Services
-                     // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio
                      services.AddWeatherDbContextMigrator(
                          hostContext.Configuration.GetConnectionString("WeatherContext"));
+                 }
+                 else
+                 {
+                     services.AddWeatherMongoMigrator(hostContext.Configuration.GetConnectionString("WeatherMongoDb"));
                  }
              })
             .UseSerilog((hostingContext, loggerConfiguration) =>

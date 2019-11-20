@@ -1,16 +1,21 @@
 ﻿using Gamp.Weather.Abstractions;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Gamp.Weather.Domain.Ef.Sql
+namespace Gamp.Weather.Domain.Mongo
 {
-    [Table("Forecasts")]
+
     public class DailyForecast
     {
         private DateTimeOffset _day;
 
-        [Key]
+        //[BsonId]
+        //[BsonRepresentation(BsonType.ObjectId)]
+        //public string Id { get; set; }
+
+        [BsonId]
+        [BsonRepresentation(BsonType.String)]
         public DateTimeOffset Date
         {
             get => _day;

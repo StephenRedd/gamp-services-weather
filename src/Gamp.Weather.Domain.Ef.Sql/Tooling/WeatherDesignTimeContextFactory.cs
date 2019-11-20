@@ -5,7 +5,6 @@ using System.IO;
 
 namespace Gamp.Weather.Domain.Ef.Sql.Tooling
 {
-
     public class WeatherDesignTimeContextFactory : IDesignTimeDbContextFactory<WeatherContext>
     {
         public WeatherContext CreateDbContext(string[] args)

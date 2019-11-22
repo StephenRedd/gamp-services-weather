@@ -5,6 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gamp.Weather.Domain.Ef.Sql
 {
+    /// <summary> A daily forecast DB Entity. </summary>
+    /// <remarks>
+    ///     This is a custom type used only for persistence. It is castable to the domain type
+    ///     WeatherForecast via c# implicit operators. This compatibility can also be done via
+    ///     inheritance or though explicit type mapping or with automapper and similar.
+    /// </remarks>
     [Table("Forecasts")]
     public class DailyForecast
     {

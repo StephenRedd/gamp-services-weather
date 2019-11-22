@@ -5,18 +5,18 @@ using System.IO;
 
 namespace Gamp.Weather.Domain.Ef.Sql.Tooling
 {
-    public class WeatherDesignTimeContextFactory : IDesignTimeDbContextFactory<WeatherContext>
+    public class WeatherDesignTimeContextFactory : IDesignTimeDbContextFactory<WeatherSqlContext>
     {
-        public WeatherContext CreateDbContext(string[] args)
+        public WeatherSqlContext CreateDbContext(string[] args)
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("Tooling/ef-design-settings.json")
                 .Build();
-            var optionsBuilder = new DbContextOptionsBuilder<WeatherContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<WeatherSqlContext>();
             var connectionString = configuration.GetConnectionString("WeatherContext");
             optionsBuilder.UseSqlServer(connectionString);
-            return new WeatherContext(optionsBuilder.Options);
+            return new WeatherSqlContext(optionsBuilder.Options);
         }
     }
 }

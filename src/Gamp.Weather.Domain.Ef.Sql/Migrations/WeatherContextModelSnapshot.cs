@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gamp.Weather.Domain.Ef.Sql.Migrations
 {
-    [DbContext(typeof(WeatherContext))]
+    [DbContext(typeof(WeatherSqlContext))]
     partial class WeatherContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

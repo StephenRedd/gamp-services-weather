@@ -10,7 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
             this IServiceCollection services,
             string connectionString)
         {
-            services.AddDbContext<WeatherContext>(options =>
+            services.AddDbContext<WeatherSqlContext>(options =>
                 options.UseSqlServer(connectionString));
             services.AddHostedService<EfSqlMigratorWorker>();
         }

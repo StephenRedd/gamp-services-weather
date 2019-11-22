@@ -21,7 +21,7 @@ namespace Gamp.Weather.Extensions.Hosting.DomainEfSql
             // Create a new scope to retrieve scoped services
             using var scope = _serviceProvider.CreateScope();
 
-            var context = scope.ServiceProvider.GetRequiredService<WeatherContext>();
+            var context = scope.ServiceProvider.GetRequiredService<WeatherSqlContext>();
 
             await context.Database.MigrateAsync(cancellationToken);
         }

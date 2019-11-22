@@ -2,6 +2,7 @@ using System;
 
 namespace Gamp.Weather.Abstractions
 {
+    /// <summary> A weather forecast domain entity. </summary>
     public class WeatherForecast
     {
         public DateTimeOffset Date { get; set; }

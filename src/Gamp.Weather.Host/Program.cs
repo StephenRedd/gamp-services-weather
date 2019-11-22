@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System;
 using System.IO;
 using System.Reflection;
 using AppHost = Microsoft.Extensions.Hosting.Host;
@@ -54,14 +53,21 @@ namespace Gamp.Weather.Host
                  // Add a Worker Service to run the auto-migrator
                  // See the docs for more informaion on Worker Services
                  // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio
-                 if (mode.Equals("Sql", StringComparison.InvariantCultureIgnoreCase))
+
+                 switch (mode.ToLowerInvariant())
                  {
-                     services.AddWeatherDbContextMigrator(
-                         hostContext.Configuration.GetConnectionString("WeatherContext"));
-                 }
-                 else
-                 {
-                     services.AddWeatherMongoMigrator(hostContext.Configuration.GetConnectionString("WeatherMongoDb"));
+                     case "sql":
+                         services.AddWeatherDbContextMigrator(
+                         hostContext.Configuration.GetConnectionString("WeatherSqlContext"));
+                         break;
+
+                     case "mongo":
+                         services.AddWeatherMongoMigrator(hostContext.Configuration.GetConnectionString("WeatherMongoDb"));
+                         break;
+
+                     default:
+                         //no migrator for memory or others
+                         break;
                  }
              })
             .UseSerilog((hostingContext, loggerConfiguration) =>

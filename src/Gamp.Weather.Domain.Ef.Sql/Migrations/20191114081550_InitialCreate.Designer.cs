@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gamp.Weather.Domain.Ef.Sql.Migrations
 {
-    [DbContext(typeof(WeatherContext))]
+    [DbContext(typeof(WeatherSqlContext))]
     [Migration("20191114081550_InitialCreate")]
     partial class InitialCreate
     {

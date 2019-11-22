@@ -1,4 +1,5 @@
 ﻿using Gamp.Weather.Abstractions;
+using Gamp.Weather.Domain.Ef;
 using Gamp.Weather.Domain.Ef.Sql;
 using Gamp.Weather.Domain.Mongo;
 using Microsoft.AspNetCore.Builder;
@@ -9,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Driver;
-using System;
 using System.Reflection;
 using System.Text.Json;
 
@@ -91,25 +91,29 @@ namespace Gamp.Weather.Api
             // TODO: Consider passing this into method rather than relying on host to have included it in IConfiguration
             // The host may not know implicitly to support these settings in it's configuration
             var mode = configuration.GetValue("WeatherStore", "Sql");
+            var weatherServiceType = typeof(EfMemoryWeatherForecastService);
+            switch (mode.ToLowerInvariant())
+            {
+                case "sql":
+                    services.AddDbContext<WeatherSqlContext>(
+                     options => options.UseSqlServer(
+                         configuration.GetConnectionString("WeatherSqlContext")));
+                    weatherServiceType = typeof(EfSqlWeatherForecastService);
+                    break;
 
-            if (mode.Equals("Sql", StringComparison.InvariantCultureIgnoreCase))
-            {
-                services.AddDbContext<WeatherContext>(
-                    options => options.UseSqlServer(
-                        configuration.GetConnectionString("WeatherEfSqlContext")));
-            }
-            else
-            {
-                services.AddSingleton<IMongoClient>(
+                case "mongo":
+                    services.AddSingleton<IMongoClient>(
                     _ => new MongoClient(
                         configuration.GetConnectionString("WeatherMongoDb")));
-            }
+                    weatherServiceType = typeof(MongoWeatherForecastService);
+                    break;
 
-            services.AddScoped(
-                typeof(IWeatherForecastService),
-                mode.Equals("Sql", StringComparison.InvariantCultureIgnoreCase)
-                    ? typeof(EfSqlWeatherForecastService)
-                    : typeof(MongoWeatherForecastService));
+                default:
+                    //default ctor self-initializes the db options for this context
+                    services.AddDbContext<WeatherMemoryContext>();
+                    break;
+            }
+            services.AddScoped(typeof(IWeatherForecastService), weatherServiceType);
 
             return services;
         }

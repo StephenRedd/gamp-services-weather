@@ -8,9 +8,9 @@ namespace Gamp.Weather.Domain.Ef.Sql
 {
     public class EfSqlWeatherForecastService : EfWeatherForecastService
     {
-        protected WeatherContext Context { get; }
+        protected WeatherSqlContext Context { get; }
 
-        public EfSqlWeatherForecastService(WeatherContext context)
+        public EfSqlWeatherForecastService(WeatherSqlContext context)
         {
             Context = context;
         }

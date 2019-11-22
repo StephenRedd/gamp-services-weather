@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Gamp.Weather.Domain.Ef.Sql
 {
-    public class WeatherContext : DbContext
+    public class WeatherSqlContext : DbContext
     {
         /// <inheritdoc />
-        public WeatherContext(DbContextOptions<WeatherContext>? options)
+        public WeatherSqlContext(DbContextOptions<WeatherSqlContext>? options)
             : base(options)
         {
         }
